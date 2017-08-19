@@ -1,0 +1,74 @@
+.search-bar {
+    padding: 5px 15px;
+    background: #eee;
+}
+
+.search-box {
+    position: relative;
+    height: 33px;
+    line-height: 33px;
+    border: 1px solid #ddd;
+}
+
+.search-box .search-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 33px;
+    height: 33px;
+    border-right: 1px solid #ddd;
+    background: url('http://www.easyicon.net/api/resizeApi.php?id=1912&size=24') no-repeat center;
+    background-size: 18px;
+}
+
+.search-box input {
+    width: 100%;
+    height: 33px;
+    line-height: 33px;
+    text-indent: 50px;
+    border: 0;
+}
+
+.search-box .search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #ddd;
+    background: #fff;
+}
+
+.data-tags {
+    margin: 10px 50px;
+}
+
+.data-tags li {
+    float: left;
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.data-tags li:nth-child(3n+1) {
+    background: #fbebe8;
+}
+
+.data-tags li:nth-child(3n+2) {
+    background: #fcedda;
+}
+
+.data-tags li:nth-child(3n+3) {
+    background: #e8f9db;
+}
+
+.search-result {
+    padding-top: 20px;
+    text-align: center;
+}

@@ -1,0 +1,41 @@
+<section class="channel">
+    <div class="channel-header">
+        <p class="header-title">{{ recommend.ad_name}}<span>推</span></p>
+        <div class="header-tap">
+            <a href="javascript:" class="tab-on">男</a>
+            <a href="javascript:">女</a>
+        </div>
+    </div>
+    <ul class="channel-list">
+        <li v-for="item in recommend.data.data" v-if="$index == 1">
+            <a href="/book?id={{item.fiction_id}}}">
+                <div class="book">
+                    <div class="book-img">
+                        <img v-bind:src="item.cover" alt="item.title"/>
+                        <p class="finish" v-if="item.finish">完成</p>
+                        <p class="finish" v-if="!item.finish">未完成</p>
+                    </div>
+                    <div class="book-message">
+                        <p class="book-title">{{item.title}}</p>
+                        <p class="book-author">{{item.authors}}</p>
+                        <p class="book-summary">{{item.summary}}</p>
+                        <div class="book-tap-wrap">
+                            <div class="book-tag" v-for="tag in item.tags">{{tag}}</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li v-for="item in recommend.data.data" v-if=" $index > 0 && $index <9">
+            <a href="/book?id={{item.fiction_id}}">
+                <div class="book no-img">
+                    <span class="no-img-order">{{ $index }}</span>
+                    <div class="no-img-info">
+                        <p class="no-img-title">{{item.authors}}</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+    </ul>
+</section>

@@ -1,0 +1,21 @@
+<section class="free channel">
+    <div class="free-header">
+        <h2 class="free-header-title">{{ free.ad_name }}111</h2>
+    </div>
+    <ul class="free-book">
+        <li v-for="item in free.data.data">
+            <a href="/book?id={{item.fiction_id}}">
+                <div class="free-model">
+                    <div class="free-img">
+                        <img v-bind:src="item.data.cover" alt="item.data.title"/>
+                        <div class="u-tagRT -freefiction"></div>
+                    </div>
+                    <div class="free-info">
+                        <h3>{{ item.data.title }}</h3>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <a href="/free" class="free-footer">更多限免佳作&gt;&gt;</a>
+</section>

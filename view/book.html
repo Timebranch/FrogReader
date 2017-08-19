@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="/static/css/reset.css"/>
+    <link rel="stylesheet" href="/static/css/common-header.css"/>
+    <link rel="stylesheet" href="/static/css/book.css"/>
+    <title>书记详情页</title>
+</head>
+<body>
+<div id="app">
+    <% include include/book-header.html /%>
+    <div class="book-wrap" style="width:{{ screenWidth }}px">
+        <div class="main">
+            <section class="main-card" style="border-bottom: none">
+                <div class="book -detail">
+                    <div class="book-cover">
+                        <img v-bind:src="item.cover" alt="{{ item.title }}"/>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="titile">{{ item.title }}</h3>
+                        <p class="author">
+                            <span>{{ item.authors }}</span>
+                        </p>
+                        <div class="grage">
+                            <span class="read">{{ item.score_count }}个评价</span>
+                        </div>
+                        <p class="price">价格: {{ item.price }}树币</p>
+                        <p class="count">
+                            字数:{{ item.word_count }}字<span class="u-booktag -serial">连载中</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="main-card">
+                <div class="book-dash">
+                    <div class="wrap">
+                        <ul class="btn-group">
+                            <li class="u-btn2" v-on:click="getData">
+                                <span class="book-dash-text"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="u-folder">
+                    <div class="folder-cnt">
+                        {{ item.content }}
+                    </div>
+                    <div class="folder-tail">
+                        <div>最新：暂无</div>
+                    </div>
+                </div>
+
+            </section>
+            <section class="main-card">
+                <div class="tags">
+                    <div class="tags-top">
+                        <h3>类别标签</h3>
+                    </div>
+                    <div class="tags-bottom">
+                        <ul class="tag -color" >
+                            <li class="u-tag " v-for="tag in item.tags">{{ tag }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="main-card">
+                <div class="u-title">
+                    <h1>作者的其他作品</h1>
+                </div>
+                <div class="book-container">
+                    <ul class="book-list">
+                        <li v-for="book in author_books">
+                            <div class="u-book -vertical">
+                                <div class="book-cover">
+                                    <img v-bind:src="book.cover" title="{{book.title}}"></img>
+                                </div>
+                                <div class="info">
+                                    <h3 class="title">{{book.title}}</h3>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="main-card">
+                <div class="u-title">
+                    <h1>喜欢本书的人也喜欢</h1>
+                </div>
+                <div class="book-container">
+                    <ul class="book-list">
+                        <li v-for="rbook in related">
+                            <div class="u-book -vertical">
+                                <div class="book-cover">
+                                    <img v-bind:src="rbook.cover" alt="{{ rbook.title }}"></img>
+                                </div>
+                                <div class="info">
+                                    <h3 class="title">{{ rbook.title }}</h3>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="main-card">
+                <div class="copyright">
+                    <p class="copyright-title">
+                        版权信息
+                    </p>
+                    <p class="copyright-text">版权： <span>{{ item.rights }}</span></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/book.js"></script>
+</body>
+</html>

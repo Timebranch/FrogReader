@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/common-header.css"/>
+    <link rel="stylesheet" href="/static/css/search.css"/>
+    <link rel="stylesheet" href="/static/css/male.css"/>
+    <title><%= title %></title>
+</head>
+<body>
+<div id="app">
+    <% include include/book-header.html %>
+    <div class="search-bar">
+        <div class="search-box">
+            <i class="search-icon"></i>
+            <input type="text" id="search_box" placeholder="输入书名/作者/关键字">
+            <button class="search-btn" v-on:click='doSearch'>搜 索</button>
+        </div>
+    </div>
+    <div>
+        <ul class="data-tags" v-show="condition">
+            <li>我的老婆是双胞胎</li>
+            <li>复仇浅井</li>
+            <li>豪门小老婆</li>
+            <li>神医</li>
+            <li>庶女</li>
+        </ul>
+        <ul class="data-list"  v-show="!condition">
+            <li class="panel-item clear" v-for="item in search">
+                <a href="/book?id">
+                    <div class="item-left fl">
+                        <img  v-bind:src="item.cover" alt="{{ item.title }}">
+                    </div>
+                    <div class="item-right">
+                        <p>{{ item.title }}</p>
+                        <p>{{ item.intro }}</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <p class="search-result" v-show="empty">没有响应的搜索结果!</p>
+    </div>
+</div>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/search.js"></script>
+</body>
+</html>

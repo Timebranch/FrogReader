@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <!-- iOS 7.1的Safari中为meta标签新增minimal-ui属性，让网页在加载时便可隐藏顶部的地址栏与底部的导航栏。 -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- 使设备浏览网页时对数字不启用电话功能 -->
+    <title><%= title %></title>
+    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/reader.css">
+</head>
+<body>
+<div id="root" class="container">
+
+    <!-- 顶部返回书架按钮 -->
+    <div id="top-nav" class="nav-top" style="display:none">
+        <div class="nav-icon" onclick="location.href='/'"></div>
+        <div class="nav-return">返回书架</div>
+    </div>
+
+    <!-- 底部的选择按钮 -->
+    <div id="bottom-nav" class="nav-bottom" style="display:none">
+        <div class="item">
+            <div class="item-wrap">
+                <div class="menu"></div>
+                <div class="menu-text">目录</div>
+            </div>
+        </div>
+        <div class="item" id="font-container">
+            <div class="item-wrap">
+                <div class="font" id="toggle"></div>
+                <div class="font-text">字体</div>
+            </div>
+        </div>
+        <div class="item"  id="night">
+            <div class="item-wrap">
+                <div class="night"></div>
+                <div class="night-text">黑夜</div>
+            </div>
+        </div>
+        <div class="item"  id="day" style="display:none">
+            <div class="item-wrap">
+                <div class="day"></div>
+                <div class="day-text">白天</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部的面板 -->
+    <!-- 做背景用 -->
+    <div class="bg-pannel pannel-open" style="display:none"></div>
+    <div id="bottom-pannel" class="pannel pannel-open" style="display:none">
+        <div class="pannel-child">
+            <span>大小</span>
+            <button id="large" class="large-button">大</button>
+            <button id="small" class="small-button">小</button>
+        </div>
+        <div class="pannel-child">
+            <span>背景</span>
+            <div class="bg-container color1">
+                <div></div>
+            </div>
+            <div class="bg-container color2">
+                <div></div>
+            </div>
+            <div class="bg-container color3">
+                <div></div>
+            </div>
+            <div class="bg-container color4">
+                <div></div>
+            </div>
+            <div class="bg-container color5">
+                <div></div>
+            </div>
+            <div class="bg-container color6">
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 小说名 -->
+    <div id="fiction_title"></div>
+
+    <!-- 小说的内容 -->
+    <div id="fiction_container" class="m-read-content">
+        <!-- <h4>任国强表示</h4>
+        <p>任国强表示，近年来，中国国防和军队建设确实取得了一些新的进步，但我们始终奉行防御性国防政策和积极防御的军事战略方针，致力于维护世界和地区的和平与稳定。我们从不怕别国的威胁，也不会去威胁别国任国强表示，近年来，中国国防和军队建设确实取得了一些新的进步，但我们始终奉行防御性国防政策和积极防御的军事战略方针，致力于维护世界和地区的和平与稳定。我们从不怕别国的威胁，也不会去威胁别国</p>
+        <p>任国强表示，近年来，中国国防和军队建设确实取得了一些新的进步，但我们始终奉行防御性国防政策和积极防御的军事战略方针，致力于维护世界和地区的和平与稳定。我们从不怕别国的威胁，也不会去威胁别国</p>
+        <p>任国强表示，近年来，中国国防和军队建设确实取得了一些新的进步，但我们始终奉行防御性国防政策和积极防御的军事战略方针，致力于维护世界和地区的和平与稳定。我们从不怕别国的威胁，也不会去威胁别国</p>
+        <p>任国强表示，近年来，中国国防和军队建设确实取得了一些新的进步，但我们始终奉行防御性国防政策和积极防御的军事战略方针，致力于维护世界和地区的和平与稳定。我们从不怕别国的威胁，也不会去威胁别国任国强表示，近年来，中国国防和军队建设确实取得了一些新的进步，但我们始终奉行防御性国防政策和积极防御的军事战略方针，致力于维护世界和地区的和平与稳定。我们从不怕别国的威胁，也不会去威胁别国任国强表示，近年来，中国国防和军队建设确实取得了一些新的进步，但我们始终奉行防御性国防政策和积极防御的军事战略方针，致力于维护世界和地区的和平与稳定。我们从不怕别国的威胁，也不会去威胁别国任国强表示，近年来，中国国防和军队建设确实取得了一些新的进步，但我们始终奉行防御性国防政策和积极防御的军事战略方针，致力于维护世界和地区的和平与稳定。我们从不怕别国的威胁，也不会去威胁别国任国强表示，近年来，中国国防和军队建设确实取得了一些新的进步，但我们始终奉行防御性国防政策和积极防御的军事战略方针，致力于维护世界和地区的和平与稳定。我们从不怕别国的威胁，也不会去威胁别国</p> -->
+    </div>
+
+    <!-- 按钮部分 -->
+    <div id="fiction_button">
+        <ul class="button">
+            <li id="prev_button">上一页</li>
+            <li id="next_button">下一页</li>
+        </ul>
+    </div>
+
+    <!-- 用于唤出上下边栏 -->
+    <div id="click_mask" class="click_open"></div>
+</div>
+
+<script src="static/script/zepto.js"></script>
+<script>
+    window.jQuery = $;
+</script>
+<script src="static/script/jquery.base64.js"></script>
+<!-- 作用 -->
+<script src="static/script/jquery.jsonp.js"></script>
+<script>
+    (function(){
+        'use strict';
+        //激活ES6
+        //各种大方法的封装
+        var util = (function(){
+            var prefix = 'html5_reader';
+            // localStorage在同一个域名下是共享的，所以在存值的时候最好加入前缀避免误操作localStorage倒置存储的信息丢失
+            var StorageGetter = function(key){
+                return localStorage.getItem(prefix + key);
+            };
+            var StorageSetter = function(key, value){
+                return localStorage.setItem(prefix + key, value);
+            };
+            var getJson = function(url, callback){
+                return $.jsonp({
+                    url : url,
+                    cache : true,
+                    callback : 'duokan_fiction_chapter',
+                    success : function(result){//result需要解码
+                        var data = $.base64.decode(result);
+                        var json = decodeURIComponent(escape(data));
+                        callback && callback(JSON.parse(json));
+                    }
+                });
+            };
+            return {
+                getJson : getJson,
+                storageSetter : StorageSetter,
+                storageGetter : StorageGetter
+            };
+        })();
+
+        // 元素的引用
+        var Dom = {
+            top_nav : $('#top-nav'),
+            bottom_nav : $('#bottom-nav'),
+            pannel : $('.bg-pannel'),
+            click_mask : $('#click_mask'),
+            pannel_open : $('.pannel-open'),
+            day_or_night : $('#toggle'),
+            fiction_container : $('#fiction_container'),
+            bg_container : $('.bg-container'),
+            body : $('body'),
+            night : $('#night'),
+            day : $('#day')
+        };
+        var oWin = $(window);
+        var oDoc = $(document);
+        var initFontSize = parseInt(util.storageGetter('font-size')) || 14;
+        var getData = ReaderModel();
+        Dom.fiction_container.css('font-size', initFontSize);
+        var initColor = util.storageGetter('color');
+        if(initColor){
+            Dom.body.addClass('color' + initColor);
+            Dom.bg_container.find('div').eq(initColor - 1).addClass('bg-current');
+        }
+
+        //整个项目的入口函数
+        function main(){
+            EventHanlder();
+            //从服务器获取数据后在回调里
+            // ReaderModel().dataInit();
+            // getData.dataInit(function(data){
+            // 	ReaderBaseFrame(Dom.fiction_container)(data);
+            // });
+            //将init方法改写为ES6写法
+            getData.initPromise().then(function(data){
+                ReaderBaseFrame(Dom.fiction_container)(data);
+            });
+        }
+
+        //实现和阅读器相关的数据交互的方法
+        function ReaderModel(){
+            var capter_id;//这个变量为这个函数里面的全局变量
+            var chapter_total;
+            //初始化数据方法
+            var init = function(callback){
+                // getChapterInfo(function(){
+                // 	getChapterContent(capter_id, function(data){
+                // 		callback && callback(data);
+                // 	});
+                // });
+                // 改写为ES6语法
+                getChapterInfoPromise().then(function(){
+                    // getChapterContent(capter_id, function(data){
+                    // callback && callback(data);
+                    return getChapterContentPromise();
+                }).then(function(data){
+                    console.log(data);
+                    callback && callback(data);
+                });
+                // });
+            };
+            //初始化数据方法 改写为ES6写法
+            var initPromise = function(){
+                return new Promise(function(resolve, reject){
+                    getChapterInfoPromise().then(function(){
+                        return getChapterContentPromise();
+                    }).then(function(data){
+                        // console.log(data);
+                        // callback && callback(data);
+                        resolve(data);
+                    });
+                });
+            };
+            //获取章节信息
+            //获得章节的id,然后根据这个ID去获得章节的内容
+            var getChapterInfo = function(callback){
+                $.get('/ajax/chapter', function(data){
+                    chapter_total = data.chapters.length;
+                    //首次获取数据先在浏览器本地存储看看有没有已经存入的页码
+                    capter_id = parseInt(util.storageGetter('pageNumber'))||data.chapters[1].chapter_id;
+                    callback && callback();
+                }, 'json');
+            };
+            //获取章节信息函数 改为ES6 Promise写法
+            var getChapterInfoPromise = function(){
+                return new Promise(function(resolve, reject){
+                    $.get('/ajax/chapter', function(data){
+                        if(data.result == 0){
+                            chapter_total = data.chapters.length;
+                            //首次获取数据先在浏览器本地存储看看有没有已经存入的页码
+                            capter_id = parseInt(util.storageGetter('pageNumber'))||data.chapters[1].chapter_id;
+                            resolve();
+                        }else{
+                            reject();
+                        }
+                    }, 'json');
+
+                });
+            }
+            //获取章节内容
+            var getChapterContent = function(capter_id, callback){
+                $.get('/ajax/chapter/data?page=' + capter_id, function(data){
+                    if(data.result == 0){//判断服务器的状态，事先约定好的
+                        var url = data.jsonp;//获得地址
+                        util.getJson(url, function(data1){
+                            callback && callback(data1);
+                        });
+                    }
+                }, 'json');
+            };
+            //获取章节内容 改写为ES6语法
+            var getChapterContentPromise = function(){
+                return new Promise(function(resolve, reject){
+                    $.get('/ajax/chapter/data?page=' + capter_id, function(data){
+                        if(data.result == 0){//判断服务器的状态，事先约定好的
+                            var url = data.jsonp;//获得地址
+                            util.getJson(url, function(data1){
+                                // callback && callback(data1);
+                                resolve(data1);
+                            });
+                        }else{
+                            reject();
+                        }
+                    }, 'json');
+                });
+            };
+            //上翻页
+            var prevChapter = function(callback){
+                capter_id = parseInt(capter_id);
+//					if(capter_id == 0){
+//						return;
+//					}
+                capter_id -= 1;
+                if(capter_id == 0){
+                    capter_id = 4; //避免数据不够报错
+                }
+                getChapterContent(capter_id, callback);
+                util.storageSetter('pageNumber', capter_id);//将页码保存在localstorage中
+            };
+            //下翻页
+            var nextChapter = function(callback){
+                capter_id = parseInt(capter_id);
+//					if(capter_id == chapter_total){
+//						return;
+//					}
+                capter_id += 1;
+                if(capter_id == 5){
+                    capter_id = 1;
+                }
+                getChapterContent(capter_id, callback);
+                util.storageSetter('pageNumber', capter_id);
+            };
+            return  {
+                dataInit : init,
+                prevChapter : prevChapter,
+                nextChapter : nextChapter,
+                initPromise : initPromise
+            };
+        }
+
+        //渲染基本的UI结构:这里的步骤是先获取数据，查看数据的结构，然后再写渲染UI的函数(解析数据)，再做UI与数据的连接
+        function ReaderBaseFrame(container){
+            //解析数据
+            function parseData(data){
+                var json = data;
+                var html = '<h4>' + json.t + '</h4>';
+                for(var i = 0; i < json.p.length; i++){
+                    html += '<p>' + json.p[i] + '</p>';
+                }
+                return html;
+            };
+            return function(data){
+                container.html(parseData(data));
+            }
+        }
+
+        //交互的事件绑定
+        function EventHanlder(){
+            //上翻页
+            $('#prev_button').click(function(){
+                getData.prevChapter(function(data){
+                    ReaderBaseFrame(Dom.fiction_container)(data);
+                });
+            });
+            //下翻页
+            $('#next_button').click(function(){
+                getData.nextChapter(function(data){
+                    ReaderBaseFrame(Dom.fiction_container)(data);
+                });
+            });
+            //点击中间的层
+            Dom.click_mask.click(function(){
+                if(Dom.top_nav.css('display') == 'none'){
+                    Dom.top_nav.show();
+                    Dom.bottom_nav.show();
+                }else{
+                    Dom.top_nav.hide();
+                    Dom.bottom_nav.hide();
+                    Dom.pannel_open.hide();
+                    Dom.day_or_night.removeClass('font-click');
+                }
+            });
+            //滚动条滚动
+            oWin.scroll(function(){
+                Dom.top_nav.hide();
+                Dom.bottom_nav.hide();
+                Dom.pannel_open.hide();
+                Dom.day_or_night.removeClass('font-click');
+            });
+            //弹出选项面板
+            $('#font-container').click(function(){
+                if(Dom.pannel_open.css('display') == 'none'){
+                    Dom.pannel_open.show();
+                    Dom.day_or_night.addClass('font-click');
+                }else{
+                    Dom.pannel_open.hide();
+                    Dom.day_or_night.removeClass('font-click');
+                }
+            });
+            //调整字体大小
+            $('#large').click(function(){
+                if(initFontSize > 20){
+                    return;
+                }
+                initFontSize += 1;
+                Dom.fiction_container.css('font-size', initFontSize);
+                util.storageSetter('font-size', initFontSize);
+            });
+            $('#small').click(function(){
+                if(initFontSize < 12){
+                    return;
+                }
+                initFontSize -= 1;
+                Dom.fiction_container.css('font-size', initFontSize);
+                util.storageSetter('font-size', initFontSize);
+            });
+            //选择背景
+            Dom.bg_container.click(function(){
+                var index = $(this).index();
+                Dom.bg_container.find('div').removeClass('bg-current');
+                $(this).find('div').addClass('bg-current');
+                Dom.body.removeClass().addClass('color' + index);
+                util.storageSetter('color', index);
+            });
+            //白天或黑色 主动出发选择背景的click事件
+            Dom.night.click(function(){
+                $(this).hide();
+                Dom.bg_container.last().click();
+                Dom.day.show();
+            });
+            Dom.day.click(function(){
+                $(this).hide();
+                Dom.bg_container.first().click();
+                Dom.night.show();
+            });
+        }
+        main();
+    })();
+</script>
+</body>
+</html>

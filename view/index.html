@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+<div id="app" class="root" style="width: {{ screenWidth }}px;overflow: hidden;">
+    <% include include/header.html /%>
+    <div style="width: {{ screenWidth*2 }}px; height:100%;transition-duration:{{headerDuration}}s;
+        transform:translate3d({{headerPosition}}px,0px,0px)">
+        <div class="wrap" style="width: {{ screenWidth }}px; float:left;">
+            <div class="main">
+                <% include include/index-top.html /%>
+                <% include include/index-hot.html /%>
+                <% include include/index-recommend.html /%>
+                <% include include/index-female.html /%>
+                <% include include/index-male.html /%>
+                <% include include/index-free.html /%>
+                <% include include/index-bottom.html /%>
+            </div>
+        </div>
+        <div class="shelf" style="width: {{ screenWidth }}px;float: left;">
+            <% include include/index-shelf.html /%>
+        </div>
+    </div>
+</div>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/index.js"></script>
+</body>
+
+</html>

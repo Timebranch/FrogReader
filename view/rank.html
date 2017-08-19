@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/common-header.css"/>
+    <link rel="stylesheet"href="/static/css/male.css">
+    <title><%=title%></title>
+    <style type="text/css">
+        .rank-list .item-left{
+            width:80px;
+            height:80px;
+        }
+        .panel-item .item-right{
+            height: 80px;
+        }
+        .rank-list .item-right .rank-txt{
+            line-height: 26px;
+            font-size: 14px;
+            color:#666;
+            text-indent:10px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <% include include/book-header.html %>
+    <div class="mt40">
+        <ul class="panel-list rank-list" >
+            <li class="panel-item clear" v-for="item in rank">
+                <a href="/book?id={{item.id}}">
+                    <div class="item-left fl">
+                        <img alt="{{ item.name }}" v-bind:src="item.cover">
+                    </div>
+                    <div class="item-right">
+                        <div class="rank-txt" v-for="txt in item.description">{{$index+1 }}. {{ txt }} </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/rank.js"></script>
+</body>
+</html>

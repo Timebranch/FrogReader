@@ -1,0 +1,33 @@
+.top {
+    position: relative;
+    height: 44px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+    line-height: 44px;
+    color: rgba(0, 0, 0, 0.7);
+    background-color: #efeff0;
+}
+
+.top-back {
+    float: left;
+    width: 42px;
+    height: 44px;
+}
+
+.top-back:before {
+    content: '';
+    display: block;
+    margin: 12px 0 0 16px;
+    width: 10px;
+    height: 16px;
+    background: url('/static/img/back.png') no-repeat;
+    background-size: 10px 16px;
+}
+
+.top-home {
+    float: right;
+    width: 44px;
+    height: 44px;
+    background: url(http://image.read.duokan.com/mfsv2/download/fdsc3/p01eZH42sBV7/QTS90E2ZVritaa.png) no-repeat center;
+    background-size: 16px;
+}

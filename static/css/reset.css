@@ -1,0 +1,33 @@
+*[hidefocus],input,textarea,a{outline:none;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{padding:0;margin:0;}
+fieldset,img,html,body,iframe{border:0;}
+table{border-collapse:collapse;border-spacing:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+caption,th{font-weight:normal;font-style:normal;text-align:left;}
+em,strong{font-weight:bold;font-style:normal;}
+body,textarea,select,input,pre{font-family: "miui", "Helvetica Neue",Helvetica,STHeiTi,sans-serif;font-size:14px;color:#555;}
+body{background:#f8f8f8;line-height:1.5em;-webkit-text-size-adjust:none;}
+a,button{cursor:pointer;}
+textarea{resize:none;overflow:auto;}
+pre{white-space:pre-wrap;}
+a{color:#333;text-decoration:none;}
+input{
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-user-modify: read-write-plaintext-only;
+}
+html{width:100%;height: 100% ;overflow-x:hidden;font-size: 10px;}
+body{background:rgba(255, 255, 255, 0);position:relative;text-align:left;width:100%;height:100%;-webkit-tap-highlight-color: rgba(0,0,0,0.05);-webkit-touch-callout:none;-webkit-user-select:none;}
+
+body{
+    -webkit-overflow-scrolling: touch;
+}
+/*-webkit-touch-callout 是一个 不规范的属性（unsupported WebKit property），它没有出现在 CSS 规范草案中。*/
+/*在iOS上，当你触摸并按住触摸的目标，比如一个链接，Safari浏览器将显示链接有关的系统默认菜单。这个属性可以让你禁用系统默认菜单。*/
+/*当用户点击iOS的Safari浏览器中的链接或JavaScript的可点击的元素时，覆盖显示的高亮颜色。*/
+/*-webkit-touch-callout 是一个 不规范的属性（unsupported WebKit property），它没有出现在 CSS 规范草案中。*/
+/*该属性可以只设置透明度。如果未设置透明度，iOS Safari使用默认的透明度。当透明度设为0，则会禁用此属性；当透明度设为1，元素在点击时不可见。*/
+ /*CSS里的user-select属性用来禁止用户用鼠标在页面上选中文字、图片等，也就是，让页面内容不可选。*/
+/*-webkit-overflow-scrolling: touch;*/
+/*使用具有回弹效果的滚动, 当手指从触摸屏上移开，内容会继续保持一段时间的滚动效果。*/
+/*继续滚动的速度和持续的时间和滚动手势的强烈程度成正比。同时也会创建一个新的堆栈上下文。*/

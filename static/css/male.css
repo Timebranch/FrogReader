@@ -1,0 +1,81 @@
+.fl {
+    float: left;
+}
+
+.panel-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.panel-item .item-left {
+    position: relative;
+    width: 85px;
+    height: 113px;
+    overflow: hidden;
+    border-radius: 2px;
+    border: 1px solid #eee;
+    margin: 0 10px;
+}
+
+.panel-item .item-left img {
+    width: 100%;
+    height: 100%;
+}
+
+.panel-item .item-left p {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    color: #fff;
+}
+
+.panel-item .item-right {
+    margin-left: 100px;
+    height: 113px;
+    padding-right: 6px;
+}
+
+.panel-item .item-right p:nth-child(1) {
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.panel-item .item-right p:nth-child(2) {
+    font-size: 14px;
+}
+
+.panel-item .item-right p:nth-child(3) {
+    font-size: 12px;
+    height: 20px;
+    line-height: 18px;
+    overflow: hidden;
+}
+
+.panel-item .item-tag-box {
+    margin-top: 10px;
+}
+
+.panel-item .item-tag-box span {
+    display: inline-block;
+    padding: 0 5px;
+    line-height: 16px;
+    height: 16px;
+    text-align: center;
+    color: #53ac7d;
+    border: 1px solid #53ac7d;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.weclome-bar {
+    height: 45px;
+    line-height: 45px;
+    font-weight: bold;
+    text-indent: 20px;
+    border-left: 6px solid #ffab18;
+}
+
+.panel-list {
+    border-bottom: 10px solid #ddd;
+}

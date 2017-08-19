@@ -1,0 +1,30 @@
+<section class="channel">
+    <div class="channel-header">
+        <p class="header-title">{{ female.ad_name }}</p>
+    </div>
+    <ul class="channel-list" >
+        <li v-for="item in female.data.data" v-if="$index <4">
+            <a href="/book?id={{item.fiction_id}}">
+                <div class="book">
+                    <div class="book-img">
+                        <img v-bind:src="item.cover" alt="item.title"/>
+                        <p class="finish" v-if="item.finish">完成</p>
+                        <p class="finish" v-if="!item.finish">未完成</p>
+                    </div>
+                    <div class="book-message">
+                        <p class="book-title">{{ item.title }}</p>
+                        <p class="book-author">{{ item.author }}</p>
+                        <p class="book-summary">{{ item.summary }}</p>
+                        <div class="book-tap-wrap">
+                            <div class="book-tag" v-for="tag in item.tags" v-if="$index < 2">{{tag}}</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div class="channel-footer">
+        <a href="javascript:">换一换</a>
+        <a href="javascript:">女生频道</a>
+    </div>
+</section>

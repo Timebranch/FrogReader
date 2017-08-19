@@ -1,0 +1,11 @@
+<section class="bottom channel">
+    <div class="channel-header">
+        <p class="header-title">{{ bottom.ad_name }}<span>热</span></p>
+    </div>
+    <div class="bottom-img">
+        <ul class="bottom-ul">
+            <li v-for="item in bottom.data.data"><img v-bind:src="item.ad_pic_url" alt="item.ad_name"/></li>
+        </ul>
+    </div>
+    <a href="/free" class="free-footer">更多精彩专题&gt;&gt;</a>
+</section>
